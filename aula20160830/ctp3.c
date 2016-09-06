@@ -1,18 +1,23 @@
 #include<stdio.h>
+#include<ctype.h>
 int main ()
 {
+    int indice=0, contador =0;
+    char investigador;
     char frase [256];
-    int i, cont;
-    int isalpha (int c);
-    printf("Escreva uma frase: ");
-    gets(frase);
-    printf("%s\n", frase);
-    cont = 0;
-    for (i=0; frase !='\0'; i++)
+    printf ("escreva uma frase:");
+    gets (frase);
+    investigador = frase[indice];
+    while (investigador)
     {
-        if (frase == isalpha)
-            cont = cont+1;
-    }
-   printf("\n numero de caracteres c = %d", cont);
-   return 0;
+        if (isalpha (investigador) !=0)
+        {
+            contador++;
+        }
+        indice++;
+        investigador = frase[indice];
+   }
+    printf ("\n numero de caracteres: %d", contador);
+    return 0;
 }
+
