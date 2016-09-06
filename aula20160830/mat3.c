@@ -7,7 +7,7 @@ int main ()
     scanf ("%f", base);
     printf ("digite um numero para se calcular o logaritmo: ");
     scanf ("%f", numero);
-    logbase = log (base, numero);
+    logbase = log (numero)/log(base);
     printf ("o logaritmo e: %f", logbase);
     return 0;
 }
