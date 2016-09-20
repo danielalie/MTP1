@@ -1,24 +1,22 @@
-#include<stdio.h> //TERMINAR
+#include<stdio.h> 
 int main ()
 {
-    int vetor [10], i;
-    printf ("\ninsira 10 numeros: ");
-
-    for (i=0; i!=10; i++)
+    int vet[10], aux[10];
+    int i, n=10;
+    for (i=0; i<10; i++)
     {
-        scanf ("%d", &vetor[i]);
+        printf("Digite o %d numero do vetor:", i+1);
+        scanf("%d",&vet[i]);
     }
-    void inverte (int vetor[], int n)
+    for(i=0;i<5;i++)
     {
-        int i=0, aux;
-        for (int j=n-1; j>(n-1)/2; j--)
-        {
-            aux=vetor[i];
-            vetor[i]=vetor[j];
-            vetor[j]=aux;
-            i++;
-        }
-        printf (" ordem invertida: %f\n", inverte)
+        n--;
+        aux[i]=vet[i];
+        vet[i]=vet[n];
+        vet[n]=aux[i];
     }
+    printf("\n o vetor reverso e: ");
+    for (i=0; i<10; i++)
+    printf("%d", vet[i]);
     return 0;
 }
