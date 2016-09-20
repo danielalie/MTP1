@@ -1,12 +1,15 @@
 #include<stdio.h>
 int main ()
 {
-    int nreal1, nreal2, soma;
-    printf ("digite um numero real: ");
-    scanf ("%lf", &nreal1);
-    printf ("digite outro numero real: ");
-    scanf ("%lf", &nreal2);
-    soma=nreal1+nreal2;
-    printf ("a soma dos numeros e: %f", &soma);
+    float numero1, numero2, soma;
+    unsigned char * ponteiro = NULL;
+    printf("Digite um numero: ");
+    scanf ("%f",&numero1);
+    printf("Digite um numero: ");
+    scanf ("%f", &numero2);
+    soma=numero1+numero2;
+    printf("Dados do primeiro numero: %p : %f\n", &numero1, numero1);
+    printf("Dados do segundo numero: %p : %f\n", &numero2, numero2);
+    printf("Dados da soma: %p : %f\n", &soma, soma);
     return 0;
 }
