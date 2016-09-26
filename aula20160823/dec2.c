@@ -1,20 +1,18 @@
 #include<stdio.h>
 #include<time.h>
-int main ()
-{
-
-    int numdigitado, resultado;
-    printf("digite um numero inteiro nao negativo: ");
-    scanf ("%d", &numdigitado);
+int main () {
+    int num, soma;
+    printf("Digite um numero: ");
+    scanf("%d",&num);
+    srand(time(0));
     int aleat;
-    srand (time (0));
-    aleat = rand ()%2;
-    printf ("numero sorteado: %d\n",aleat);
-    resultado = numdigitado+aleat;
-    if (resultado%2 == 0)
-        printf("o resultado e: %d e o numero e par!\n",resultado);
+    aleat = rand()%2;
+    soma= num+aleat;
+    if(soma%2==0){
+        printf("O resultado da soma e par %d",soma);
+    }
     else
-        printf("o resultado e: %d e o numero e impar!\n", resultado);
-    return 0;
+        printf("O resultado da soma e impar %d",soma);
 
+    return 0;
 }
