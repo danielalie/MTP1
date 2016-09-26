@@ -1,46 +1,76 @@
-#include<stdio.h>// TERMINARRRR
-#include<string.h>
-
-#define QUANTIDADE = 10
-
-int main ()
-{
-    struct cadastro
-    {
-        char nome[50];
-        char idade [20];
-        char telefone [20];
+#include <stdio.h>
+#define QNTDMAX 1000
+int n;
+struct cadastro{
+    char nome[100];
+    int idade;
+    int telefone;
     };
+struct cadastro vetor[50];
+void cadastrar()
+{
+   int i;
+	for(i = 0 ; i < n ; i++)
+	{
+		printf("\nCadastrando");
+		printf ("Nome:\n");
+		fflush(stdin);
+		gets(vetor[i].nome);
+		printf("Idade:\n");
+		scanf("%d", &vetor[i].idade);
+		printf("Telefone:\n");
+		scanf("%d", &vetor[i].telefone);
+}
+}
+void nomes ()
+{
+printf("Nomes cadastrados:\n");
+int i;
+	for(i = 0 ; i < n ; i++)
+printf("%s\n", vetor[i].nome);
+}
+void idades ()
+{
+    int i=0;
+printf("Idades cadastrados:\n");
+	for(i = 0 ; i < n ; i++)
+printf("%d\n", vetor[i].idade);
+}
+void telefones ()
+{
+    int i;
+printf("Telefones cadastrados:\n");
+	for(i = 0 ; i < n ; i++)
+printf("%d\n", vetor[i].telefone);
+}
+int main (){
+    int opcao;
+    printf("Digite o numero de pessoas que devem ser cadastradas:\n");
+	scanf("%d", &n);
+    do {
+    printf("Escolha o que deseja fazer:\n");
+    printf("Digite 1 para cadastrar pessoas.\n");
+    printf("Digite 2 para listar todos os nomes cadastrados.\n");
+    printf("Digite 3 para listar todas as idades cadastradas.\n");
+    printf("Digite 4 para listar todos os telefones cadastradas.\n");
+    printf("Digite 5 para sair.\n");
+    scanf("%d", &opcao);
+switch (opcao)
+{
+        case 1:
+            cadastrar();
+            break;
+        case 2:
+           nomes ();
+           break;
+        case 3:
+           idades;
+           break;
+        case 4:
+            telefones ();
+            break;
+}
+    }while(opcao!=5);
 
-    cadastro.nome;
-    cadasro.idade;
-    cadastro.telefone;
 
-    int opcao = 1;
-    do{
-
-        printf("\n CADASTRO:\n\n");
-
-        printf("\n digite nome:");
-        scanf("%s", &cadastro.nome);
-        fflush(stdin);
-        printf("\n digite idade: ");
-        scanf ("%d", &cadastro.idade);
-        fflush (stdin);
-        printf("\n digite telefone: ");
-        scanf ("%d", &cadastro.telefone);
-        fflush (stdin);
-        printf ("\n\n");
-        printf("\n nome: %s\n", cadastro.nome);
-        printf("\n idade: %d \n", cadastro.idade);
-        printf("\n telefone: %d", cadastro.telefone);
-        printf ("\n\n");
-
-        printf("digite 1 para novo cadastro ou 0 para sair: ");
-        scanf ("%d", &opcao);
-    }
-
-    while (opcao==1);
-    return 0;
-
-    }
+return 0;}
