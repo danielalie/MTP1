@@ -1,30 +1,25 @@
-#include<stdio.h> // TERMINAR
+#include<stdio.h>
 
-void imprimirpares ();
-void imprimirimpares ();
+void num_pares ();
 
-int main ()
-{
-    char entrada[256];
-    printf ("Deseja ver os numeros pares ou impares entre 1 e 10?\n");
-    scanf("%d",entrada);
-    if (entrada==pares)
-    {
-        imprimirpares ();
-    }
-    if (entrada==impares)
-    {
-        imprimirimpares ();
-    }
+void num_impares ();
+
+int main () {
+        int op;
+        printf("Voce deseja ver os pares ou os impares?\nPara pares digite 1 e para impares digite 2: ");
+        scanf("%d",&op);
+        switch(op) {
+            case 1: num_pares(); break;
+            case 2: num_impares(); break;
+        }
+
     return 0;
 }
 
-void imprimirpares ()
-{
-    printf ("pares: 2, 4, 6, 8, 10\n");
+void num_pares () {
+    printf("2;4;6;8");
 }
 
-void imprimirimpares ()
-{
-    printf ("impares: 1, 3, 5, 7, 9");
+void num_impares () {
+    printf("1;3;5;7;9");
 }
