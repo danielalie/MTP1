@@ -1,25 +1,43 @@
-#include<stdio.h> // TERMINAR DEPOIS
+#include<stdio.h> // TERMINAR DEPOIS - user memoria heap para guardar os caracteres que o usuario digita
 #include<stdlib.h>
+char * inicializatexto ();
+char * recebetexto (char*texto);
+
 int main ()
 {
-    char * texto =  malloc (sizeof(char));
-    texto[0]='\0';
-    printf (" entre com um texto: \n");
-    recebetexto (texto);
+    char * texto;
+    texto=inicializatexto ();
+    printf("entre com o texto (entre com # e enter para sair): ");
+    texto=recebetexto(texto);
+    printf("\n: o que tem na HAP: \n");
+    printf("%s\n", texto);
+    free(texto);
     return 0;
 }
 
-void recebetexto (char * texto)
+
+char * inicializatexto ()
 {
-    int c, tamanho = strlen (texto);
-    do {
-        c = getchar ();
-        if (c!='#')
-        {
-            texto[tamanho] = c;
-            tamanho ++;
-            texto = realloc ((tamanho+1)*sizeof(char));
-            texto (tamanho) = '\0';
-        }
-    } while (c!='#');
+    char * texto;
+    texto = (char*) malloc (sizeof (char));
+    texto [0]='\0';
+    return texto;
+}
+
+char * recebetexto (char*texto) //modificar ponteiro, crescendo a variavel
+{
+    int c, tamanho=0;
+    do
+    {
+       c=getchar();
+       if  (c!='#')
+       {
+            tamanho++;
+           texto = (char *) realloc(texto,tamanho*sizeof(char));
+           texto[tamanho] = '\0';
+           texto[tamanho-1]= c;
+       }
+    }
+    while (c!='#');
+    return texto;
 }
