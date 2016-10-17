@@ -1,27 +1,39 @@
-#include<stdio.h>//TERMINAR
+#include <stdio.h>
 
 struct fracao
 {
-    int num;
-    int den;
+    int numerador;
+    int denominador;
 };
 
-struct fracao divisao  (int num1, int den1, int num2, int den2);
+struct fracao soma(int num1, int den1, int num2, int den2);
 int main ()
 {
     struct fracao resposta;
-    int num1, den1, num2, den2;
-    printf ("entre com o numerador e denominador: ");scanf ("%d/%d", &num1, &den1);
-    printf ("entre com o numerador e denominador: ");scanf ("%d/%d",&num2, den2);
-    resposta=divisao(num1,den1,num2,den2);
-    printf("soma: %d\n", resposta.soma);
+    int numerador1, denominador1, numerador2, denominador2;
+    printf("Entre com o numerador 1: \n");
+    scanf("%d", &numerador1);
+    fflush(stdin);
+    printf("Entre com o denominador 1: \n");
+    scanf("%d", &denominador1);
+    fflush(stdin);
+    printf("Entre com o numerador 2: \n");
+    scanf("%d", &numerador2);
+    fflush(stdin);
+    printf("Entre com o denominador 2: \n");
+    scanf("%d", &denominador2);
+    fflush(stdin);
+    resposta= soma(numerador1, denominador1, numerador2, denominador2);
+    printf("A soma e: %d/%d \n",  resposta.numerador, resposta.denominador);
     return 0;
 }
 
-struct fracao divisao  (int num1, int den1, int num2, int den2)
+struct fracao soma(int num1, int den1, int num2, int den2)
 {
-    struct fracao resposta;
-    resposta.soma = (num1/den1)+(num2/den2);
-    return resposta;
+        struct fracao resposta;
+        resposta.numerador = (num1*den2)+(num2*den1);
+        resposta.denominador = (den1*den2);
+        return resposta;
+};
 
-}
+
