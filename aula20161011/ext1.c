@@ -1,37 +1,29 @@
-#include<stdio.h>//TERMINAR PRA ACHAR O MAIOR E MENOR
-#include<stdlib.h>
 
-void recebenumeros (float * numeros, int qtnumeros);
-float media (float * numeros, int qtnumeros);
-
+#include <stdio.h>
+#include <stdlib.h>
+float *recebenumero (float *vetor, int *tamanho);
 int main ()
 {
-    int qtnumeros;
-    float *numeros;
-    printf ("informe a quantidade de numeros: ");
-    scanf ("%d", &qtnumeros);
-    numeros=malloc(qtnumeros*sizeof(float));
-    recebenumeros (numeros, qtnumeros);
-    printf ("media: %g \n", media (numeros, qtnumeros));
-    free (numeros);
+    float* vetor=NULL;
+    int tamanho=0, op;
+    do
+    {
+        vetor= recebenumero(vetor, &tamanho);
+        printf("Deseja entrar com um numero? (0-nao; 1-sim.");
+    }
+    while (op !=0);
+    free(vetor);
     return 0;
 }
 
-void recebenumeros (float * numeros, int qtnumeros)
+float *recebenumero (float *vetor, int *ptamanho)
 {
-    int i;
-    for (i=0; i<qtnumeros; i++)
-    {
-        printf ("entre com o numero: ", i);
-        scanf ("%f", &numeros[i]);
-    }
+    (*ptamanho)++;
+    if(vetor==NULL)
+        vetor= (float*) malloc(sizeof(float));
+    else
+        vetor= (float*) realloc(vetor, (*ptamanho)*sizeof(float));
+    printf("Entre com um numero: ");
+    scanf("%f", &vetor[(*ptamanho)-1]);
+    return vetor;
 }
-
-float media (float * numeros, int qtnumeros)
-{
-    float soma = 0.f;
-    int i;
-    for (i=0; i<qtnumeros; i++) soma += numeros [i];
-    return soma/qtnumeros;
-}
-
