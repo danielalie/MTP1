@@ -84,3 +84,4 @@ char * letexto()
 
       }return texto;
 }
+
