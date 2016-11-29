@@ -16,7 +16,7 @@ char * leTexto (char *nome){
     int c, tamanho = 0;
     arquivo = fopen(nome, "r");
     if(arquivo == NULL)
-       fscanf (nome,%f)
+       fscanf (stdin,"%f",nome);
     fclose(arquivo);
     return texto;
 
